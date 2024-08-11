@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" href="/images/shop_logo.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanGents</title>
+    <style>
+        body{
+            padding: 0%;
+            margin: 0%;
+            background-color: #737373;
+            
+        }
+        .main{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+        .card{
+            text-align: center;
+            width: 20%;
+            /* height: 420px; */
+            border: 1px solid black;
+            border-radius: 6px;
+            margin: 3%;
+        }
+        .card-img-top{
+            width: 100%;
+            height: 300px;
+            border-radius: 5px 5px 0px 0px;
+            overflow: hidden;
+        }
+        .details h5, small{
+            margin: 0.5%;
+        }
+        .details{
+          background-color: #a3a3a3;
+          border-radius: 0px 0px 5px 5px ;
+        }
+        .logo{
+            float: left;
+            font-size: 44px;
+            font-weight: bolder;
+            font-family: Segoe Script;
+        }
+        #header img{
+            width: 12%;
+        }
+        #header{
+            width: 100%;
+            height: 80px;
+            background-color: #666666;
+            overflow: hidden;
+        }
+        #header ul{
+            margin-left: 80px;
+        }
+        #header ul li{
+            font-size: 15px;
+            font-weight: bold;
+            padding-right: 45px;
+        }
+        #header ul li a:hover{
+            color: white;
+            scale: 1.1;
+            transition: 0.1s ease-in-out;
+            cursor: pointer;
+        }
+        #header button{
+            font-weight: bold;
+            font-size: 13px;
+            padding: 10px 30px;
+            font-weight: bold;
+            background-color: transparent;
+            border: 3px solid black;
+            border-radius: 5px;
+        }
+        #header button:hover{
+            background-color: black;
+            color: white;
+        }
+        #filter{
+            margin: 3%;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            font-size: 15px;
+            padding: 10px 30px;
+            font-weight: bold;
+            background-color: black;
+            color: #D2D9D4;
+            border: 3px solid #D2D9D4;
+            border-radius: 5px;
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+        }
+        #filter:hover{
+            background-color: #D2D9D4;
+            color: #2E3944;
+        }
+        #cart{
+          display: flex;
+          align-items: center;
+        }
+        .head{
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        #filter_div{ 
+          display: none;
+          width: 50%;
+          height: auto;
+          padding: 3%;
+          margin-top: 2%;
+          background-color: #a3a3a3;
+          text-align: center;
+          border-radius: 10px;
+        }
+        #filter_div *{
+          margin: 1%;
+          background-color: #a3a3a3;
+        }
+        #filter_div input{
+          border: none;
+          border-bottom: 2px solid black;
+        }
+        .filter_row{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+        }
+        #SubBtn{
+          background-color: #a3a3a3;
+          border: 2px solid black;
+          border-radius: 5px;
+          padding: 10px 30px;
+        }
+        #SubBtn:hover{
+          background-color: black;
+          color: white;
+        }
+    </style>
+</head>
+<body>
+  <div class="head">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="margin: 0%; padding: 0px;">
+        <div class="container-fluid" id="header">
+          
+          <label class="logo"><img src="/images/shop_logo.png" alt="">UrbanGents</label>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" id="s">Shirts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="t">Trousers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="sho">Shoes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="w">Watches</a>
+                </li>
+            </ul>
+            <button id="cart"><i class="fa-solid fa-cart-shopping"></i> Cart</button>
+          </div>
+        </div>
+      </nav>
+  </div>
+  <a href="#"><button id="filter"><i class="fa-solid fa-filter"></i> &nbsp; Filter</button></a>
+    <!-- <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="..." class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div> -->
+    <div class="row filter_row">
+      <div id="filter_div">
+        <form action="">
+            <b>Enter Minimum Price:</b>
+            <input type="number" id="min" placeholder="Enter Amount" /><br>
+            <b>Enter Maximum Price:</b>
+            <input type="number" id="max" placeholder="Enter Amount" /><br>
+            <!-- <h4>Category</h4>
+            <input type="checkbox" value="Shirts" id="shirt"><b>Shirts</b><br>
+            <input type="checkbox" value="Pants" id="pant"><b>Pants</b><br>
+            <input type="checkbox" value="Shoes" id="shoe"><b>Shoes</b><br>
+            <input type="checkbox" value="Watch" id="watch"><b>Watch</b><br> -->
+            <button id="SubBtn">Apply Changes</button>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+        <!-- <div class="col-sm-10"> -->
+            <div class="main">
+                <div class="card box" data-value="100" category="shirt">
+                    <img src="/images/shirt1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body details">
+                      <h5 class="card-title">Wrangler</h5>
+                      <small class="card-text">Lorem ipsum dolor sit amet, cons adipisicing elit.</small>
+                      <h4>$100</h4>
+                    </div>
+                </div>
+                <div class="card box" data-value="50" category="shirt">
+                    <img src="/images/shirt2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body details">
+                      <h5 class="card-title">Calvin Klein</h5>
+                      <small class="card-text">Lorem ipsum dolor sit amet, cons adipisicing elit.</small>
+                      <h4>$50</h4>
+                    </div>
+                </div>
+                <div class="card box" data-value="100" category="shirt">
+                    <img src="/images/shirt3.jpg" class="card-img-top" alt="...">
+                    <div class="card-body details">
+                      <h5 class="card-title">Allen Solly</h5>
+                      <small class="card-text">Lorem ipsum dolor sit amet, cons adipisicing elit.</small>
+                      <h4>$100</h4>
+                    </div>
+                </div>
+                <div class="card box" data-value="100" category="shirt">
+                    <img src="/images/shirt4.jpg" class="card-img-top" alt="...">
+                    <div class="card-body details">
+                      <h5 class="card-title">Calvin Klein</h5>
+                      <small class="card-text">Lorem ipsum dolor sit amet, cons adipisicing elit.</small>
+                      <h4>$100</h4>
+                    </div>
+                </div>
+                <div class="card box" data-value="100" category="shirt">
+                    <img src="/images/shirt5.jpg" class="card-img-top" alt="...">
+                    <div class="card-body details">
+                      <h5 class="card-title">Wrangler</h5>
+                      <small class="card-text">Lorem ipsum dolor sit amet, cons adipisicing elit.</small>
+                      <h4>$100</h4>
+                    </div>
+                </div>
+                <div class="card box" data-value="100" category="shirt">
+                    <img src="/images/shirt6.jpg" class="card-img-top" alt="...">
+                    <div class="card-body details">
+                      <h5 class="card-title">Tommy Hilfiger</h5>
+                      <small class="card-text">Lorem ipsum dolor sit amet, cons adipisicing elit.</small>
+                      <h4>$100</h4>
+                    </div>
+                </div>
+                <div class="card box" data-value="100" category="pant">
+                    <img src="/images/pant1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body details">
+                      <h5 class="card-title">Spykar</h5>
+                      <small class="card-text">Lorem ipsum dolor sit amet, cons adipisicing elit.</small>
+                      <h4>$150</h4>
+                    </div>
+                </div>
+                <div class="card box" data-value="100" category="pant">
+                    <img src="/images/pant2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body details">
+                      <h5 class="card-title">Jack & Jones</h5>
+                      <small class="card-text">Lorem ipsum dolor sit amet, cons adipisicing elit.</small>
+                      <h4>$100</h4>
+                    </div>
+                </div>
+                <div class="card box" data-value="100" category="pant">
+                    <img src="/images/pant3.jpg" class="card-img-top" alt="...">
+                    <div class="card-body details">
+                      <h5 class="card-title">Jones Player</h5>
+                      <small class="card-text">Lorem ipsum dolor sit amet, cons adipisicing elit.</small>
+                      <h4>$350</h4>
+                    </div>
+                </div>
+                <div class="card box" data-value="100" category="pant">
+                    <img src="/images/pant4.jpg" class="card-img-top" alt="...">
+                    <div class="card-body details">
+                      <h5 class="card-title">Pepe Jeans</h5>
+                      <small class="card-text">Lorem ipsum dolor sit amet, cons adipisicing elit.</small>
+                      <h4>$400</h4>
+                    </div>
+                </div>
+                <div class="card box" data-value="100" category="pant">
+                    <img src="/images/pant5.jpg" class="card-img-top" alt="...">
+                    <div class="card-body details">
+                      <h5 class="card-title">Allen Solly</h5>
+                      <small class="card-text">Lorem ipsum dolor sit amet, cons adipisicing elit.</small>
+                      <h4>$290</h4>
+                    </div>
+                </div>
+                <div class="card box" data-value="100" category="pant">
+                    <img src="/images/pant6.jpg" class="card-img-top" alt="...">
+                    <div class="card-body details">
+                      <h5 class="card-title">Levi's</h5>
+                      <small class="card-text">Lorem ipsum dolor sit amet, cons adipisicing elit.</small>
+                      <h4>$500</h4>
+                    </div>
+                </div>
+                <div class="card box" data-value="100" category="shoe">
+                    <img src="/images/shoe1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body details">
+                      <h5 class="card-title">Jack & Jones</h5>
+                      <small class="card-text">Lorem ipsum dolor sit amet, cons adipisicing elit.</small>
+                      <h4>$100</h4>
+                    </div>
+                </div>
+                <div class="card box" data-value="100" category="shoe">
+                    <img src="/images/shoe2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body details">
+                      <h5 class="card-title">Jack & Jones</h5>
+                      <small class="card-text">Lorem ipsum dolor sit amet, cons adipisicing elit.</small>
+                      <h4>$100</h4>
+                    </div>
+                </div>
+                <div class="card box" data-value="100" category="shoe">
+                    <img src="/images/shoe3.jpg" class="card-img-top" alt="...">
+                    <div class="card-body details">
+                      <h5 class="card-title">Jack & Jones</h5>
+                      <small class="card-text">Lorem ipsum dolor sit amet, cons adipisicing elit.</small>
+                      <h4>$100</h4>
+                    </div>
+                </div>
+                <div class="card box" data-value="100" category="shoe">
+                    <img src="/images/shoe4.jpg" class="card-img-top" alt="...">
+                    <div class="card-body details">
+                      <h5 class="card-title">Jack & Jones</h5>
+                      <small class="card-text">Lorem ipsum dolor sit amet, cons adipisicing elit.</small>
+                      <h4>$100</h4>
+                    </div>
+                </div>
+                <div class="card box" data-value="100" category="shoe">
+                    <img src="/images/shoe5.jpg" class="card-img-top" alt="...">
+                    <div class="card-body details">
+                      <h5 class="card-title">Jack & Jones</h5>
+                      <small class="card-text">Lorem ipsum dolor sit amet, cons adipisicing elit.</small>
+                      <h4>$100</h4>
+                    </div>
+                </div>
+                <div class="card box" data-value="100" category="shoe">
+                    <img src="/images/shoe6.jpg" class="card-img-top" alt="...">
+                    <div class="card-body details">
+                      <h5 class="card-title">Jack & Jones</h5>
+                      <small class="card-text">Lorem ipsum dolor sit amet, cons adipisicing elit.</small>
+                      <h4>$100</h4>
+                    </div>
+                </div>
+                <div class="card box" data-value="100" category="watch">
+                    <img src="/images/watch1.jpg" class="card-img-top" alt="...">
+                    <div class="card-body details">
+                      <h5 class="card-title">Jack & Jones</h5>
+                      <small class="card-text">Lorem ipsum dolor sit amet, cons adipisicing elit.</small>
+                      <h4>$100</h4>
+                    </div>
+                </div>
+                <div class="card box" data-value="100" category="watch">
+                    <img src="/images/watch2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body details">
+                      <h5 class="card-title">Jack & Jones</h5>
+                      <small class="card-text">Lorem ipsum dolor sit amet, cons adipisicing elit.</small>
+                      <h4>$100</h4>
+                    </div>
+                </div>
+                <div class="card box" data-value="100" category="watch">
+                    <img src="/images/watch3.jpg" class="card-img-top" alt="...">
+                    <div class="card-body details">
+                      <h5 class="card-title">Jack & Jones</h5>
+                      <small class="card-text">Lorem ipsum dolor sit amet, cons adipisicing elit.</small>
+                      <h4>$100</h4>
+                    </div>
+                </div>
+                <div class="card box" data-value="100" category="watch">
+                    <img src="/images/watch4.jpg" class="card-img-top" alt="...">
+                    <div class="card-body details">
+                      <h5 class="card-title">Jack & Jones</h5>
+                      <small class="card-text">Lorem ipsum dolor sit amet, cons adipisicing elit.</small>
+                      <h4>$100</h4>
+                    </div>
+                </div>
+                <div class="card box" data-value="100" category="watch">
+                    <img src="/images/watch5.jpg" class="card-img-top" alt="...">
+                    <div class="card-body details">
+                      <h5 class="card-title">Jack & Jones</h5>
+                      <small class="card-text">Lorem ipsum dolor sit amet, cons adipisicing elit.</small>
+                      <h4>$100</h4>
+                    </div>
+                </div>
+                <div class="card box" data-value="100" category="watch">
+                    <img src="/images/watch6.jpg" class="card-img-top" alt="...">
+                    <div class="card-body details">
+                      <h5 class="card-title">Jack & Jones</h5>
+                      <small class="card-text">Lorem ipsum dolor sit amet, cons adipisicing elit.</small>
+                      <h4>$100</h4>
+                    </div>
+                </div>
+                
+            <!-- </div> -->
+        </div>
+        
+    </div>
+
+    <script>
+        let dataValue = document.querySelectorAll(".box");
+        
+
+        dataValue.forEach(function(item){
+            document.getElementById("SubBtn").addEventListener('click' , function(){
+              
+                let mini = parseInt(document.getElementById("min").value);
+                let maxi = parseInt(document.getElementById("max").value);
+                document.getElementById("filter_div").style.display = "none"
+                let DataItems = item.getAttribute('data-value');
+                var type = item.getAttribute("category")
+                if(isNaN(mini) || isNaN(maxi) )
+                  window.location.reload();
+                else{
+                if(DataItems >= mini && DataItems <= maxi )
+                  item.style.display="block"
+                else
+                  item.style.display="none"
+                }
+                // to get all shirts when click on shirt button
+                document.getElementById("s").addEventListener("click", () => {
+                if (type === "shirt") {
+                    item.style.display = "block";
+                } else {
+                    item.style.display = "none";
+                }
+                });
+                // let type = item.getAttribute('category')
+                // if(document.getElementById("s")){
+                //   document.getElementById("s").addEventListener('click',()=>{
+                //   if(type == "shirt")
+                //     item.style.display="block"
+                // })}
+                // else if(document.getElementById("t")){
+                //   document.getElementById("t").addEventListener('click',()=>{
+                //   if(type == "pant")
+                //     item.style.display="block"
+                // })}
+                // else if(document.getElementById("sho")){
+                //   document.getElementById("sho").addEventListener('click',()=>{
+                //   if(type == "shoe")
+                //     item.style.display="block"
+                // })}
+                // else if(document.getElementById("w")){
+                //   document.getElementById("w").addEventListener('click',()=>{
+                //   if(type == "watch")
+                //     item.style.display="block"
+                // })}
+                // // else if(document.getElementById("pant").checked && type == "pant")
+                // //     item.style.display="block"
+
+                // // else if(document.getElementById("shoe").checked && type == "shoe")
+                // //     item.style.display="block"
+
+                // // else if(document.getElementById("watch").checked && type == "watch")
+                // //     item.style.display="block"
+                // else
+                //   item.style.display="none"
+
+
+            })
+        })
+
+        document.getElementById("filter").addEventListener("click",()=>{
+          document.getElementById("filter_div").style.display = "block"
+        })
+
+        
+    </script>
+</body>
+</html>

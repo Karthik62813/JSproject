@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        h1{
+            font-size: 300%;
+            line-height: 100px;
+            
+        }
+        .container{
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+        }
+        .card{
+            text-align: center;
+            width: 25%;
+            margin: 3%;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+        .card-img-top{
+            width: 100%;
+            border-radius: 5px;
+        }
+        #button{
+            width: 92%;
+            font-size: 100%;
+            padding: 10px;
+            margin-bottom: 4%;
+            border-radius: 10px;
+            border: none;
+            background-color: rgb(255, 184, 158);
+            
+        }
+        #button:hover{
+            box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+            transition: ease-in-out 200ms;
+            color: white;
+            background-color: rgb(236, 100, 51);
+        }
+    </style>
+</head>
+<body>
+    <h1>"Your Hub for Banking, Shopping, and Delicious Recipes."</h1>
+    <div class="container">
+        <div class="card">
+            <img src="images/transaction.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <a href="/transactions/transaction_index.html"><button id="button"><b>TRANSACTION</b></button></a>
+            </div>
+        </div>
+    
+        <div class="card">
+            <img src="/images/shopping.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <a href="/shopping/shopping_index.html"><button id="button"><b>SHOPPING</b></button></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="images/API.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <a href="/APIcalling/APIcall_index.html"><button id="button"><b>API CALLING</b></button></a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
