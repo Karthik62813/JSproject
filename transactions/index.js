@@ -18,9 +18,11 @@ document.getElementById("sub").addEventListener("click", () => {
             balance -= amount;
             updateBalance();
         } 
-        else {
-            alert("Please enter a valid amount or ensure sufficient balance");
+        else if(isNaN(amount)){
+            alert("Please enter a valid amount");
         }
+        else
+            alert("Please ensure sufficient balance")
     }
     else
         alert("enter correct pin")
