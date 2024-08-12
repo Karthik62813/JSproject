@@ -110,7 +110,7 @@
         .head{
             position: sticky;
             top: 0;
-            z-index: 999;
+            z-index: 9999;
         }
         #filter_div{ 
           display: none;
@@ -146,6 +146,13 @@
           background-color: black;
           color: white;
         }
+        .carousel{
+          height: 50vh;
+          margin: 2%;
+        }
+        .carousel-inner img{
+          height: 50vh;
+        }
     </style>
 </head>
 <body>
@@ -177,8 +184,27 @@
         </div>
       </nav>
   </div>
+
+  <div class="row filter_row">
+    <div id="filter_div">
+      <form action="">
+          <b>Enter Minimum Price:</b>
+          <input type="number" id="min" placeholder="Enter Amount" /><br>
+          <b>Enter Maximum Price:</b>
+          <input type="number" id="max" placeholder="Enter Amount" /><br>
+          <!-- <h4>Category</h4>
+          <input type="checkbox" value="Shirts" id="shirt"><b>Shirts</b><br>
+          <input type="checkbox" value="Pants" id="pant"><b>Pants</b><br>
+          <input type="checkbox" value="Shoes" id="shoe"><b>Shoes</b><br>
+          <input type="checkbox" value="Watch" id="watch"><b>Watch</b><br> -->
+          <button id="SubBtn">Apply Changes</button>
+      </form>
+    </div>
+  </div>
+
+
   <a href="#"><button id="filter"><i class="fa-solid fa-filter"></i> &nbsp; Filter</button></a>
-    <!-- <div id="carouselExampleIndicators" class="carousel slide">
+    <div id="carouselExampleIndicators" class="carousel slide">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -186,13 +212,13 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img src="..." class="d-block w-100" alt="...">
+            <img src="https://img.freepik.com/free-vector/sale-promotion-ad-poster-design-template_53876-57882.jpg?uid=R155859932&ga=GA1.2.1106714725.1721128988&semt=ais_hybrid" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
+            <img src="https://img.freepik.com/free-photo/shirt-hanger-cyber-monday-concept_23-2148669962.jpg?t=st=1723474806~exp=1723478406~hmac=a2c2deb5d018a4fb5c2f009aca0742894141663c942e649636f5659c184183a2&w=740" class="d-block w-100" alt="...">
           </div>
           <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
+            <img src="https://img.freepik.com/free-psd/social-template-sales-valentine-s-day_15879-407.jpg?t=st=1723475023~exp=1723478623~hmac=a0c23aee5ce4be5be45c9aab76403b9a037a7010bcdb22d9b1ff60e717f227c7&w=740" class="d-block w-100" alt="...">
           </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -203,23 +229,8 @@
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
-      </div> -->
-    <div class="row filter_row">
-      <div id="filter_div">
-        <form action="">
-            <b>Enter Minimum Price:</b>
-            <input type="number" id="min" placeholder="Enter Amount" /><br>
-            <b>Enter Maximum Price:</b>
-            <input type="number" id="max" placeholder="Enter Amount" /><br>
-            <!-- <h4>Category</h4>
-            <input type="checkbox" value="Shirts" id="shirt"><b>Shirts</b><br>
-            <input type="checkbox" value="Pants" id="pant"><b>Pants</b><br>
-            <input type="checkbox" value="Shoes" id="shoe"><b>Shoes</b><br>
-            <input type="checkbox" value="Watch" id="watch"><b>Watch</b><br> -->
-            <button id="SubBtn">Apply Changes</button>
-        </form>
       </div>
-    </div>
+    
     <div class="row">
         <!-- <div class="col-sm-10"> -->
             <div class="main">
@@ -441,13 +452,6 @@
                 else
                   item.style.display="none"
                 }
-                // to get all shirts when click on shirt button
-                document.getElementById("s").addEventListener("click", () => {
-                if (type === "shirt") {
-                    item.style.display = "block";
-                } else {
-                    item.style.display = "none";
-                }
                 });
                 // let type = item.getAttribute('category')
                 // if(document.getElementById("s")){
@@ -483,12 +487,10 @@
 
 
             })
-        })
 
         document.getElementById("filter").addEventListener("click",()=>{
-          window.location.reload();
           document.getElementById("filter_div").style.display = "block"
-          //reload  the page and then send statement to be executed
+          document.getElementsByTagName("body").style.filter = "blur(5px)"
         })
 
         
